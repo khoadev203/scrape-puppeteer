@@ -1,3 +1,6 @@
+// This file will scrape program data of 
+// camp type - day&night according to url of urls.json
+
 // puppeteer-extra is a drop-in replacement for puppeteer,
 // it augments the installed puppeteer with plugin functionality
 const puppeteer = require('puppeteer-extra')
@@ -9,9 +12,9 @@ puppeteer.use(StealthPlugin())
 // file helper
 const fs = require('fs');
 const csvWriter = require('csv-write-stream')
-const finalPathFile = './data_day.csv';
+const finalPathFile = './data_night_2.csv';
 // import config
-const jsonData = require("./day.json")
+const jsonData = require("./urls2_23.json")
 // site start url
 const baseUrl = 'http://find.acacamps.org';
 
@@ -19,11 +22,11 @@ const baseUrl = 'http://find.acacamps.org';
 puppeteer.launch({
   headless: true
 }).then(async browser => {
-  for (let k = 0; k < 53; k++) {
-    let id = jsonData.day[k];
+  for (let k = 8; k < jsonData.length; k++) {
+    let id = jsonData[k];
 
     for (let i = 0; i < id.links.length; i++) {
-      console.log('Running ' + i + ' for ' + id.state + ', index:' + k)
+      console.log('Running ' + i + ' for ' + id.category + ', index:' + k)
       const page = await browser.newPage()
       // Configure the navigation timeout
       await page.setDefaultNavigationTimeout(0);
@@ -41,6 +44,9 @@ puppeteer.launch({
           campLink = await h1Tags[1].$eval('a', a => a.getAttribute('href'));
         }
 
+        // find pictures if exist
+        const imgs = await page.$$eval('img.img-responsive[src]', imgs => imgs.map(img => img.getAttribute('src')));
+
         // find program description
         let divs = await page.$x("//div[@class='camp-description']");
         let programDesc = '';
@@ -50,8 +56,21 @@ puppeteer.launch({
         // find location
         const addressTags = await page.$x("//address");
         let location = '';
-        if (addressTags[0])
+        let zipcode = '';
+        let city = '';
+        if (addressTags[0]) {
           location = await (await addressTags[0].getProperty('innerText')).jsonValue();
+          location = location.slice(0, -11)
+          // extract city&zipcode
+          let strArr = location.replace(/(\r\n|\n|\r)/gm, " ").split(",");
+
+          let zipcodeArrr = (strArr[1]) ? strArr[1].trim().replace(/[^a-zA-Z0-9 ]/g, "") : '';
+          zipcode = zipcodeArrr.substring(2, 7);
+
+          let cityArrr = (strArr[0]) ? strArr[0].split(" ") : [''];
+          city = cityArrr[cityArrr.length - 1];
+
+        }
 
         // find contact
         const contacts = await page.$x("//div[@class='sidebar-contact fix']");
@@ -79,7 +98,7 @@ puppeteer.launch({
         // write into csv
         if (!fs.existsSync(finalPathFile))
           writer = csvWriter({
-            headers: ["title", "campUrl", "about", "location", "state", "contact", "siteUrl", "additional"]
+            headers: ["title", "campUrl", "about", "category", "picture", "location", "city", "zipcode", "contact", "siteUrl", "additional"]
           });
         else
           writer = csvWriter({
@@ -93,8 +112,12 @@ puppeteer.launch({
           title: programTitle,
           campUrl: baseUrl + campLink,
           about: programDesc,
-          location: location.slice(0, -11),
-          state: id.state,
+          category: id.category,
+          picture: JSON.stringify(imgs),
+          location: location,
+          // state: id.state,
+          city: city,
+          zipcode: zipcode,
           // contact:contact.replace(/[^a-zA-Z ]/g, ""),
           contact: contact,
           siteUrl: programLink,

@@ -1,0 +1,19 @@
+[{
+    "activity": "Academic",
+    "names": ["Aeronautics", "Archaeology", "Architecture", "Astronomy", "Aviation", "Biology", "BusinessFinance", "Chemistry", "CITCounselor Development", "College Prep", "ComputerTechnology", "Creative Writing", "Cultural Appreciation", "Engineering", "English as a Second Language", "Experiencing History", "General Academics", "History", "Intentional Social Skill Development", "International Studies", "JournalismWriting", "Languages", "Leadership Development", "Liberal Arts", "Mathematics", "Model Rocketry", "Native American Study", "PhilosophyLogicCritical Thinking", "Physics", "Public SpeakingDebate", "ReadingLiterature", "Religious Study", "Robotics", "Science", "Service LearningCommunity Service"]
+}, {
+    "activity": "Adventure",
+    "names": ["Animal Encounters", "Backpacking", "BMXMotocross", "Canyoneering", "Caving  Spelunking", "Day Trips", "Geocaching", "Hiking", "Ice Climbing", "Military", "Mountain Biking", "Mountaineering", "Orienteering", "Parkour", "Ranch Work", "Rock Climbing", "Ropes Course", "Scooter", "Teen travel  inside the US", "Teen travel  outside the US", "Wilderness Survival", "Wilderness Trips", "Zip Line"]
+}, {
+    "activity": "Arts",
+    "names": ["Acting", "Animation", "Arts and Crafts", "Basket MakingWeaving", "Ceramics", "Circus", "CulinaryCooking", "Dance", "Drama", "Drawing and Painting", "Film and TV", "Magic", "Music  Instrumental", "Music  Vocal", "NeedleartsSewing", "Photography", "Pottery", "Radio", "Sculpture", "Silk Screening", "Stained Glass", "Theater", "Woodturning", "Woodworking"]
+}, {
+    "activity": "Environmental",
+    "names": ["Leave No Trace Skills", "Aquatic EcologyStudy", "Camping SkillsOutdoor Living", "Conservation", "Entomology Insects", "FarmingGardening", "Forest Ecology", "Geology Earth", "Herpetology Amphibians  Reptiles", "Marine Science", "Nature Exposure", "Ornithology Birds", "Veterinary Science", "Wildlife Ecology", "Zoology Animals"]
+}, {
+    "activity": "Sports",
+    "names": ["Aerobics", "AllTerrain Vehicle ATV", "Archery", "Baseball", "Basketball", "Bike Touring", "Bowling", "Cheerleading", "Cross Country Skiing", "Downhill Skiing", "Fencing", "Field Hockey", "Fitness", "Football", "GaGa", "Games", "GoKarts", "Golf", "Gymnastics", "Horseback Riding  English", "Horseback Riding  Vaulting", "Horseback Riding  Western", "Hunting", "Ice Hockey", "Ice Skating", "Lacrosse", "Martial Arts", "Paintball", "Race Car Driving", "Racquetball", "Riflery", "Roller Hockey", "RollerbladingRoller Skating", "Rugby", "Running", "Skateboarding", "Snowboarding", "Snowshoeing", "Soccer", "Softball", "Squash", "Street Hockey", "Tennis", "Track  Field", "Ultimate Frisbee", "Volleyball", "Weight Lifting", "Wrestling", "YogaPilatesTai Chi"]
+}, {
+    "activity": "Water Activities",
+    "names": ["Canoeing", "Diving", "Fishing", "Kayaking", "Paddleboarding", "Rafting", "RowingCrew", "Sailing", "SCUBA", "Snorkeling", "Surfing", "Swimming", "Wakeboarding", "Water Polo", "Water Skiing", "Windsurfing"]
+}]

@@ -12,9 +12,9 @@ puppeteer.use(StealthPlugin())
 // file helper
 const fs = require('fs');
 const csvWriter = require('csv-write-stream')
-const finalPathFile = './data_night_0.csv';
+const finalPathFile = './data_night_3.csv';
 // import config
-const jsonData = require("./urls0_34.json")
+const jsonData = require("./urls3_14.json")
 // site start url
 const baseUrl = 'http://find.acacamps.org';
 
@@ -22,7 +22,7 @@ const baseUrl = 'http://find.acacamps.org';
 puppeteer.launch({
   headless: true
 }).then(async browser => {
-  for (let k = 0; k < jsonData.length; k++) {
+  for (let k = 1; k < jsonData.length; k++) {
     let id = jsonData[k];
 
     for (let i = 0; i < id.links.length; i++) {

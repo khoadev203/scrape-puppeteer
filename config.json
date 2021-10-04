@@ -110,6 +110,14 @@
         "overnight_camp",
         "day_and_overnight",
         "adult_camp"
+    ],
+    "activities":[
+        "Academic",
+        "Adventure",
+        "Arts",
+        "Environmental",
+        "Sports",
+        "Water Activities"
     ]
     
 }
