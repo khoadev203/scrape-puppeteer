@@ -28,9 +28,9 @@ puppeteer.launch({
 }).then(async browser => {
   let campsArr = [];
   for (let kk in jsonCat) {
-    // if (kk !=3) continue;
+    if (kk !=1) continue;
     let jsonData = jsonCat[kk];
-    for (let k = 0; k < jsonData.names.length; k++) {
+    for (let k = 7; k < jsonData.names.length; k++) {
 
       console.log('Running...' + kk + '//' + k)
 
